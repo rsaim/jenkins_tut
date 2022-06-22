@@ -43,7 +43,9 @@ pipeline {
             }
             post {
                 success {
+                    dir("${env.WORKSPACE}/simple-python-pyinstaller-app"){
                     archiveArtifacts 'dist/add2vals'
+                    }
                 }
             }
         }
