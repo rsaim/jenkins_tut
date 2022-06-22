@@ -37,15 +37,11 @@ pipeline {
                 }
             }
             steps {
-                dir("${env.WORKSPACE}/simple-python-pyinstaller-app"){
-                    sh 'pyinstaller --onefile sources/add2vals.py'
-                }
+                sh 'pyinstaller --onefile sources/add2vals.py'
             }
             post {
                 success {
-                    dir("${env.WORKSPACE}/simple-python-pyinstaller-app"){
                     archiveArtifacts 'dist/add2vals'
-                    }
                 }
             }
         }
